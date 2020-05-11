@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://certificadorprevisional.fonasa.gov.cl.ws/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://certificadorprevisional.fonasa.gov.cl.ws/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://certificadorprevisional.fonasa.gov.cl.ws/">
+      <s:element name="getCertificadoPrevisional">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="query" type="tns:QueryCertificadorPrevisionalTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryCertificadorPrevisionalTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="queryTO" type="tns:queryTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="entidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="claveEntidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="rutBeneficiario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dgvBeneficiario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="canal" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="queryTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="tipoEmisor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipoUsuario" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCertificadoPrevisionalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getCertificadoPrevisionalResult" type="tns:ReplyCertificadorPrevisionalTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReplyCertificadorPrevisionalTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="replyTO" type="tns:replyTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="folio" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="codcybl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="coddesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="numeroCarga" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoprais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descprais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdgIsapre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="desIsapre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="beneficiarioTO" type="tns:BeneficiarioTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="afiliadoTO" type="tns:AfiliadoTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="listCargas" type="tns:ArrayOfCargasTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="replyTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="errorM" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BeneficiarioTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="rutbenef" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dgvbenef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apell1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apell2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fechaNacimiento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="genero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="generoDes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fechaFallecimiento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdgNacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="desNacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdgRegion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="desRegion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdgComuna" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="desComuna" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AfiliadoTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="rutafili" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dgvafili" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apell1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apell2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fecnac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tramo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="genero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="generoDes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdgEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="desEstado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCargasTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CargasTO" type="tns:CargasTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CargasTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="rutcarga" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dgvcarga" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apell1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apell2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="parentesco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fecnac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="genero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="generoDes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getCertificadoPrevisionalSoapIn">
+    <wsdl:part name="parameters" element="tns:getCertificadoPrevisional" />
+  </wsdl:message>
+  <wsdl:message name="getCertificadoPrevisionalSoapOut">
+    <wsdl:part name="parameters" element="tns:getCertificadoPrevisionalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CertificadorPrevisionalSoap">
+    <wsdl:operation name="getCertificadoPrevisional">
+      <wsdl:input message="tns:getCertificadoPrevisionalSoapIn" />
+      <wsdl:output message="tns:getCertificadoPrevisionalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CertificadorPrevisionalSoap" type="tns:CertificadorPrevisionalSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="getCertificadoPrevisional">
+      <soap:operation soapAction="http://certificadorprevisional.fonasa.gov.cl.ws/getCertificadoPrevisional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CertificadorPrevisional">
+    <wsdl:port name="CertificadorPrevisionalSoap" binding="tns:CertificadorPrevisionalSoap">
+      <soap:address location="http://ws.fonasa.cl:8080/Certificados/Previsional" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
